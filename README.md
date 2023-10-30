@@ -4,7 +4,7 @@
 2. [Checkpoints](#checkpoints)
 3. [Collectables](#collectables)
 4. [Collectable placement helpers](#collectable-placement-helpers)
-5. [Trigger and Interaction Components](#section-1)
+5. [Trigger and Interaction Components](#trigger-and-interaction-components)
 6. [Platforms](#section-1)
 7. [Music-driven events (Sequencer)](#section-1)
 8. [Slide Mechanic and dot product fun](#section-1)
@@ -66,10 +66,15 @@ A number of parameters can be set:
 - Circle Radius
 - Total degrees of rotation.
 
-![image](https://github.com/DanielBallem/platformer/assets/33844493/6135bb9c-7840-457d-9fb4-53ed075285cf)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/2c3716dc-c1a3-45fa-9579-2a6dc515f7f6)
 
 All of these will ensure that designers don't have to work very hard to get a circle of collectables. Circles by hand are hard!
 
 ### Collectable Spline
 
+Splines work in a similar way, allowing the designer to follow a path to place collectables along, or do whatever crazy design they want. 
+![image](https://github.com/DanielBallem/platformer/assets/33844493/560a5d90-d374-449e-a1e0-0125489a3696)
 
+![image](https://github.com/DanielBallem/platformer/assets/33844493/4a7cf680-da01-4a7d-aefb-c81f3fd3d79d)
+
+## Trigger and Interaction Components
