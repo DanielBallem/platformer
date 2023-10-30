@@ -5,7 +5,7 @@
 3. [Collectables](#collectables)
 4. [Collectable placement helpers](#collectable-placement-helpers)
 5. [Trigger and Interaction Components](#trigger-and-interaction-components)
-6. [Platforms](#section-1)
+6. [Platforms](#platforms)
 7. [Music-driven events (Sequencer)](#section-1)
 8. [Slide Mechanic and dot product fun](#section-1)
 
@@ -78,3 +78,48 @@ Splines work in a similar way, allowing the designer to follow a path to place c
 ![image](https://github.com/DanielBallem/platformer/assets/33844493/4a7cf680-da01-4a7d-aefb-c81f3fd3d79d)
 
 ## Trigger and Interaction Components
+Interactable bp actors inherit from an interaction class, which sets up a UI widget to appear and dissapear when the player has them highlighted (close and in front of them).
+When the player interacts, it will activate whatever that component will override as its own "interact" function. 
+Parent class graph:
+![image](https://github.com/DanielBallem/platformer/assets/33844493/85cd7574-6569-4ce1-8553-e5a24e465d1d)
+
+### interactable trigger:
+ I've set up a switch, which is a child of the interactable actor and uses a TriggerComponent I made. Upon interaction, it uses it to open and close the door.
+![image](https://github.com/DanielBallem/platformer/assets/33844493/633773ee-2be0-44a6-8226-52ee9683b80d)
+
+
+### NPC:
+This NPC is also a child of the interactable actor, but stops the player from moving and shows a "dialogue" in the form of a string message.
+![image](https://github.com/DanielBallem/platformer/assets/33844493/997ca17d-aa0d-425a-976c-7a687e2de08b)
+
+#### Using both in action:
+![interaction](https://github.com/DanielBallem/platformer/assets/33844493/c27911f5-0f13-4bc8-9e85-a8357d0eec03)
+
+###Trigger and Triggerable Component
+Trigger Component: Attachable component that facilitates the logic for registering itself with the object you want to trigger. The actor can use it to trigger whatever the designer has set up. Using a dropped, you can make any switch trigger anything with the `triggerable` component.
+
+Triggerable component: Has two behaviours:
+1. Toggle on/off. Object can act off of toggle events to enact some kind of behaviour.
+2. Buildup trigger. Object will not trigger unless all of the triggers pointing to itself have been fired.
+
+As an example of the buildup trigger, you can see that this door doesn't open unless both key collectables have been collected.
+![builduptrigger](https://github.com/DanielBallem/platformer/assets/33844493/c939cd90-9654-494e-9e4c-e51f902b2e2d)
+
+To set what actor the object will trigger, you can use a dropper. 
+
+![image](https://github.com/DanielBallem/platformer/assets/33844493/6a31d5b0-ac45-4159-a581-e917b8f60ed7)
+
+A designer will be able to swap triggered objects really quickly, or add new key items to open doors. They can do this without needing to change the existing triggered object.
+
+## Platforms
+
+Every good 3D platformer needs moving platforms. I've made two: rotating and movement platforms. 
+
+Using a timeline I can get a position along a spline and move the platform along with it. It can inherit rotation of the spline, or stay upright. It can use any mesh. Start and stop via player interaction, or once the level starts.
+Rotating platforms can be set which axis, and the rate each individual axis rotates by.
+![movingplatform](https://github.com/DanielBallem/platformer/assets/33844493/fa846683-b5d2-4f78-97d4-cc924bb7ecfa)
+
+moving platform:
+![image](https://github.com/DanielBallem/platformer/assets/33844493/310de7a9-9395-43e7-9451-96d43c5e9de1)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/bd9f1985-eba7-4306-80d6-da9e9f28b959)
+
