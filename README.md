@@ -13,44 +13,45 @@
 
 
 ## Datatable Driven Bounce Pads
-  ![bouncepads](https://github.com/DanielBallem/platformer/assets/33844493/b2bac4dc-80d2-4d59-9036-a916afc9ba6d)
+![bouncepads](https://github.com/DanielBallem/platformer/assets/33844493/e28d331f-e81c-4355-84dc-17db9c9dffb1)
 
   Platformers require consistency across different gameplay interactions and objects. Tables are a great way to keep track of this, as any changes in the table will persist across all levels, ensuring that the player knows what height to expect when landing on a particular bounce pad. 
   - By adding a new entry into the data table along with its corresponding enum, this blueprint will automatically display a new selectable type.
-  - ![image](https://github.com/DanielBallem/platformer/assets/33844493/936f8e3d-4ad8-4a53-8368-54818dfca34a)
+  - ![image](https://github.com/DanielBallem/platformer/assets/33844493/ea451f9b-2c5b-41ac-a419-3bc793c46993)
+
   - This bounce pad sets the height and material from the datatable.
 
 ### Bounce pad direction
-![image](https://github.com/DanielBallem/platformer/assets/33844493/2b185c78-3da2-4be2-9d70-56dba4216763)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/f751f3c4-6758-4f7d-9831-c38e24332e4c)
 
 Bounce pads can be rotated, and will launch the player wherever they point.
 
 ## Checkpoints
-![image](https://github.com/DanielBallem/platformer/assets/33844493/8981435f-8cfa-42a0-af86-2eabfa7a7dab)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/fc3e88cc-57c1-42b2-95eb-acce4f5e7d94)
 
 A simple checkpoint system is useful in 3d platforming games to ensure progress throughout the level. 
 - On startup, it converts the new spawn location from local space to world space.
 - Once the player overlaps with the trigger, the checkpoint will get the game mode and officially set a new spawn point.
-![image](https://github.com/DanielBallem/platformer/assets/33844493/8b8f5de1-a294-497e-895f-1d2cc6ab2ab4)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/dbe6c6e5-f444-43f6-8ff6-4068a2d1330e)
 This is particularly useful for expansive open worlds where checkpoints can be utilized in any sequence. To establish an ordered checkpoint system, implementing an index can ensure that only checkpoints representing further progress are considered
 
 ## Collectables
-![image](https://github.com/DanielBallem/platformer/assets/33844493/e5b27e85-03bd-4a95-97a0-4ed8a8effa00)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/dcafd8aa-2a5a-4f0e-b18f-b020feab4da8)
 
 I've made 2 collectables: common and key collectables.
 Both inherit from a collectable parent, which sets up the removal of the collectable once it has been collected, and enforces height so that all collectables appear at uniform height.
 
 Level designers can drag and drop collectables into a level without having to set up their height every time.
 
-![collectablesnap](https://github.com/DanielBallem/platformer/assets/33844493/0cbf04d8-fec2-40e4-9b5f-b2d5bd882194)
+![collectablesnap](https://github.com/DanielBallem/platformer/assets/33844493/eacf59c7-8499-479b-8ce1-3b5fee2351df)
 
 Common collectables spin and hover using a timeline, which can be edited to ensure uniformity across all common collectables. 
 
-![collectablespin](https://github.com/DanielBallem/platformer/assets/33844493/3bb03c79-74ca-41e2-80ee-8e45661b1556)
+![collectablespin](https://github.com/DanielBallem/platformer/assets/33844493/e0512e67-9067-4ec9-b9b9-bea3d2ac54d1)
 
 An offset can be given so that when placed in sequence, they can offset each other. 
 
-![collectableoffset](https://github.com/DanielBallem/platformer/assets/33844493/c32aaca7-0c41-4edf-997e-e6acb53ce478)
+![collectableoffset](https://github.com/DanielBallem/platformer/assets/33844493/6bd8216e-2563-4ba5-ad96-7b2827b55dcc)
 
 ## Collectable Placement Helpers
 
@@ -58,7 +59,7 @@ Level designers need to add large collections of collectables quickly, this coul
 
 ### Collectable Ring
 This object spawns collectables around its origin, with a radius of R and a total rotation from 0-360 degrees.
-![image](https://github.com/DanielBallem/platformer/assets/33844493/354c27c2-0b85-4088-ab89-a6c73440fe23)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/eedf1b53-39fa-4ecf-a154-75530b2623d3)
 A number of parameters can be set:
 - Number of collectables
 - Collectable BP to spawn (Must inherit Collectable parent class)
@@ -66,34 +67,33 @@ A number of parameters can be set:
 - Circle Radius
 - Total degrees of rotation.
 
-![image](https://github.com/DanielBallem/platformer/assets/33844493/2c3716dc-c1a3-45fa-9579-2a6dc515f7f6)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/880e94e7-bf41-45e2-ad7c-9a9adf5ec7c4)
 
 All of these will ensure that designers don't have to work very hard to get a circle of collectables. Creating circles manually can be challenging!
 
 ### Collectable Spline
 
 Splines work in a similar way, allowing the designer to follow a path to place collectables along, or do whatever crazy design they want. 
-![image](https://github.com/DanielBallem/platformer/assets/33844493/560a5d90-d374-449e-a1e0-0125489a3696)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/a9ff930d-6f9e-435b-8594-95496e5fd31b)
 
-![image](https://github.com/DanielBallem/platformer/assets/33844493/4a7cf680-da01-4a7d-aefb-c81f3fd3d79d)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/555b047c-340c-4caa-87b2-d5de1d2d0683)
 
 ## Trigger and Interaction Components
 Interactable bp actors inherit from an interaction class, which sets up a UI widget to appear and dissapear when the player has them highlighted (close and in front of them).
 When the player interacts, it will activate whatever that component will override as its own "interact" function. 
 Parent class graph:
-![image](https://github.com/DanielBallem/platformer/assets/33844493/85cd7574-6569-4ce1-8553-e5a24e465d1d)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/fe9f89a7-c3be-4123-8e7a-d913fe5d7220)
 
 ### interactable trigger:
  I've set up a switch, which is a child of the interactable actor and uses a TriggerComponent I made. Upon interaction, it uses it to open and close the door.
-![image](https://github.com/DanielBallem/platformer/assets/33844493/633773ee-2be0-44a6-8226-52ee9683b80d)
-
+![image](https://github.com/DanielBallem/platformer/assets/33844493/b74fa262-0f8f-463d-a90d-3db2f767c30f)
 
 ### NPC:
 This NPC is also a child of the interactable actor, but stops the player from moving and shows a "dialogue" in the form of a string message.
-![image](https://github.com/DanielBallem/platformer/assets/33844493/997ca17d-aa0d-425a-976c-7a687e2de08b)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/2c6ec189-057e-41cd-aac0-79e454edc188)
 
 #### Using both in action:
-![interaction](https://github.com/DanielBallem/platformer/assets/33844493/c27911f5-0f13-4bc8-9e85-a8357d0eec03)
+![interaction](https://github.com/DanielBallem/platformer/assets/33844493/82bbc107-f23a-4a01-bd93-8b3e49f0b5cb)
 
 ###Trigger and Triggerable Component
 Trigger Component: Attachable component that facilitates the logic for registering itself with the object you want to trigger. The actor can use it to trigger whatever the designer has set up. Using a dropped, you can make any switch trigger anything with the `triggerable` component.
@@ -103,11 +103,11 @@ Triggerable component: Has two behaviours:
 2. Buildup trigger. Object will not trigger unless all of the triggers pointing to itself have been fired.
 
 As an example of the buildup trigger, you can see that this door doesn't open unless both key collectables have been collected.
-![builduptrigger](https://github.com/DanielBallem/platformer/assets/33844493/c939cd90-9654-494e-9e4c-e51f902b2e2d)
+![builduptrigger](https://github.com/DanielBallem/platformer/assets/33844493/faf646ae-2584-4084-aa14-45bcec6ed2a9)
 
 To set what actor the object will trigger, you can use a dropper. 
 
-![image](https://github.com/DanielBallem/platformer/assets/33844493/6a31d5b0-ac45-4159-a581-e917b8f60ed7)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/414b6ae5-daf8-47d5-a356-cd44f3b0f47b)
 
 A designer will be able to swap triggered objects really quickly, or add new key items to open doors. They can do this without needing to change the existing triggered object.
 
@@ -117,22 +117,22 @@ Every good 3D platformer needs moving platforms. I've made two: rotating and mov
 
 Using a timeline I can get a position along a spline and move the platform along with it. It can inherit rotation of the spline, or stay upright. It can use any mesh. Start and stop via player interaction, or once the level starts.
 Rotating platforms can be set which axis, and the rate each individual axis rotates by.
-![movingplatform](https://github.com/DanielBallem/platformer/assets/33844493/fa846683-b5d2-4f78-97d4-cc924bb7ecfa)
+![movingplatform](https://github.com/DanielBallem/platformer/assets/33844493/18223100-8f52-42f6-ae62-77b19d0ca891)
 
 moving platform:
-![image](https://github.com/DanielBallem/platformer/assets/33844493/310de7a9-9395-43e7-9451-96d43c5e9de1)
-![image](https://github.com/DanielBallem/platformer/assets/33844493/bd9f1985-eba7-4306-80d6-da9e9f28b959)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/ee0bf499-2423-4d22-9b5f-63bb198fc1ba)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/92ed1279-ee1b-496e-868e-4db19823b82f)
 
 ## Music-driven Events
 
 Inspired by the recent Super Mario Wonder, I explored implementing actors in a level that respond to the beat of a song.
 
 - A level sequence with a song starts playing. The sequencer references a Music manager, which periodically fires "StrongBeat" events.
-  ![image](https://github.com/DanielBallem/platformer/assets/33844493/36f8dc50-650a-4013-b381-852f99d63af2)
+  ![image](https://github.com/DanielBallem/platformer/assets/33844493/eac6590b-7be1-47fe-816f-0541ae81d4fa)
 
-- A trigger component called "MusicTriggerComponentBP" subscribes to the music manager's StrongBeat events, and fires its own event that the parent can use in order to do something. In my case, I made platforms rotate. This creates a harmonious relationship between the audio and the world, which really helps the game feel unified.
+- A trigger component called "MusicTriggerComponentBP" subscribes to the music manager's StrongBeat events, and fires its own event that the parent can use in order to do something. In my case, I made platforms rotate. This creates a harmonious relationship between the audio and the world, which really helps the game feel unified. As well, you don't need to worry about syncing movements yourself with every object you place.
 
-https://github.com/DanielBallem/platformer/assets/33844493/cdacbdf9-1782-4dfc-8a0e-04577c896488
+https://github.com/DanielBallem/platformer/assets/33844493/9119755b-e287-40af-a61d-684cf4f0ca3a
 
 An artist could create a track, and someone could go through the song and add events for on beats, off beats, accents, the melody, etc. Then, you could have all of those events be subscribed to by actors that need to act in time. Once you've created the level sequence, you can build off of it really easily. 
 
@@ -151,20 +151,22 @@ As part of the 3d platformer package, I wanted to experiment on what it's like f
   4. They jump higher when sliding.
 
 Implementing the jump and dashing was fine, the tricky part was the sliding, which took a lot of fine tuning in order to get down (and it's still not perfect). I have a system where when sliding, it changes the character's parameters via a data table I've set up.
-![image](https://github.com/DanielBallem/platformer/assets/33844493/209603c3-1737-40f8-bb91-3e649b4f22df)
+
 
 To emulate the feel of increasing in speed, as the player slides down or up it changes their maximum speed. The math to determine if the player should speed or slow down is as follows:
-![image](https://github.com/DanielBallem/platformer/assets/33844493/15961b5c-92b7-42e0-9023-b1bb8d082c4b)
+
+![image](https://github.com/DanielBallem/platformer/assets/33844493/423be3fa-3821-4036-8cb6-40b0731cc6c3)
 
 When sliding, a raycast is shot directly below the player, and the angle of the slope is used with the current velocity of the player to dictate if they're moving up or down that slope. If the dot product is positive, the player is going downhill. If it is zero or negative, they're horizontal or going uphill, and should then slowdown.
 
 As part of the stylization of the movement, I can use the slope normal to add a very small force to the player, so they slowly slide down in the direction of the slope regardless of how they're sliding. 
 
-![image](https://github.com/DanielBallem/platformer/assets/33844493/af46cc4e-ac9c-46ed-a6c8-2aaf9c1f992b)
+![image](https://github.com/DanielBallem/platformer/assets/33844493/b657e9d3-3e25-421f-9eb3-c2a85ae436f8)
 
 Although the slide mechanic isn't flawless, particularly when sliding on an incline as it swiftly transitions back to walking, it still represents a significant improvement from the previous version. I find it to be satisfactory, and I take pride in the mathematical calculations and effort I invested to implement this feature independently.
 
 If you wish to play through the "level" I made, or see any of the implementations yourself, feel free to download the project. If you're going to use the code for your own work, all I ask is that you credit me somewhere.
+![image](https://github.com/DanielBallem/platformer/assets/33844493/ff22ba45-0a0a-4f27-ab22-8a83e335fb90)
 
 Thank you!
 
